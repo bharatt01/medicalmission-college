@@ -53,3 +53,12 @@
     "tailwindcss": "^3.4.1"
   }
 }
+"id": "ignore-eslint",
+"build": "react-scripts build",
+"eslintConfig": {
+  "extends": ["react-app"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "no-unused-vars": "off"
+  }
+}

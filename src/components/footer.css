@@ -1,0 +1,49 @@
+/* Footer custom styling */
+footer {
+    font-size: 1rem !important;
+  }
+  
+  footer h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  body {
+    overflow-x: hidden !important;
+  }
+  
+.cp-text-center{
+    text-align: center !important;
+}
+  
+  .created-by {
+    font-size: 1rem;
+    color: #f8f9fa;
+  }
+  
+  .abhasys-link {
+    color: #f8f9fa;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  
+  * {
+    box-sizing: border-box;
+  }
+  .container {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+    
+  @media(max-width:768px){
+    .cp-text-center{
+      text-align:center !important;
+    }
+  }
+  @media (max-width: 576px){
+    .cp-text-center{
+      text-align:center !important;
+    }
+  }

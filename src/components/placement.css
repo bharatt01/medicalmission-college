@@ -1,0 +1,87 @@
+/* .placement-section {
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+    color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  .pp-text-light{
+    margin-top: 2rem !important;
+    font-size: 1.5rem !important;
+  }
+  
+  .animated-title {
+    font-size: 2rem !important;
+    animation: slideInDown 1s ease-in-out;
+  }
+  
+  .loading-spinner {
+    height: 50vh;
+  }
+  
+  .company-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .company-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .company-logo-wrapper {
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .company-logo-wrapper img {
+    max-height: 50px;
+    object-fit: contain;
+    animation: fadeInUp 1.2s ease-in-out;
+  }
+  
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+   */
+   
+   
+   
+   .placement-section {
+    background: linear-gradient(to right, #4e54c8, #8f94fb) !important;
+    font-family: 'Merriweather', serif !important;
+  }
+  
+  .company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+   
+  }
+  
+ .pp-fs-5 {
+  color: white !important;
+  font-size: 1.4rem !important;
+ }
+  
+ 
+  

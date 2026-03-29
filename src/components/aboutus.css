@@ -1,0 +1,105 @@
+.about-us-container {
+    background: linear-gradient(135deg, #ff9966, #ff5e62)!important;
+    padding: 1rem;
+    margin-top: -2.5rem !important;
+    /* No changes for laptop view, mobile only adjustments */
+    
+  }
+  
+  .about-us-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-top: -1rem !important;
+    text-align: center;
+  }
+  
+  .about-us-description {
+    font-size: 1.5rem;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .card {
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Prevent overflow within the card */
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 1.7rem !important;
+    color: black !important;
+  }
+  
+  .card-text {
+    color: black !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  /* Mobile view adjustments */
+  @media (max-width: 768px) {
+    .about-us-title {
+      font-size: 2rem;  /* Adjusting title font size for smaller screens */
+    }
+  
+    .about-us-description {
+      font-size: 1rem;  /* Adjust description font size */
+      text-align: center;
+    }
+  
+    .card-body {
+      padding: 1.5rem;
+    }
+  
+    /* Ensure no horizontal overflow on mobile */
+    .about-us-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+  
+    /* Ensure the cards stay within the screen width */
+    .card {
+      width: 100%;
+      margin: 0 auto;  /* Center the card */
+    }
+  
+    .card-title, .card-text {
+      font-size: 1rem;  /* Adjust font size for better readability on smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .about-us-title {
+      font-size: 2rem !important;  /* Further reduce size for very small screens */
+    }
+  
+    .about-us-description {
+      font-size: 1.4rem !important;
+    }
+    .card-text {
+      color: black !important;
+      font-size: 1.2rem !important;
+    }
+  
+    /* Ensure no overflow in small screen */
+    .card-body {
+      padding: 1rem;
+    }
+    .about-us-container {
+  margin-top: -30px !important; 
+    }  
+  }
+  

@@ -1,0 +1,27 @@
+/* Default styles (for mobile view) */
+.hding-fw-bold{
+  font-size: 2rem !important; 
+  font-weight: bold !important;/* Mobile view font size for heading */
+  font-family: 'Merriweather', serif !important;
+}
+
+.parag {
+  font-size: 1.2rem; /* Mobile view font size for paragraph */
+  font-family: 'Merriweather', serif !important;
+  text-align: left !important;
+}
+
+/* Media query for laptop/desktop view */
+@media (min-width: 768px) {
+  .hding-fw-bold {
+    font-size: 2rem !important; /* Larger font size for heading in laptop view */
+    font-family: 'Merriweather', serif !important;
+    font-weight: bold !important;
+    color: black !important;
+  }
+
+
+  .parag {
+    font-size: 1.3rem !important; /* Larger font size for paragraph in laptop view */
+  }
+}

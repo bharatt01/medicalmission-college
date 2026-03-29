@@ -1,0 +1,130 @@
+/* 
+  .hero-section {
+    padding: 2rem 0;
+  }
+  
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+  }
+  
+  .carousel-image.active {
+    opacity: 1;
+  }
+  .nur-text-primary{
+    color:chocolate !important;
+  } */
+
+
+
+/* Hero Section */
+.hero-section {
+  padding: 2rem 0;
+}
+
+/* Row: Dynamically Adjust Height */
+.hero-section .row {
+  min-height: 80vh; /* Default height for larger screens */
+}
+
+/* Mobile Carousel */
+.mobile-carousel {
+  height: 280px; /* Mobile fixed height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-carousel img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+/* Desktop Carousel */
+.desktop-carousel {
+  height: 450px !important; /* Default height for large screens */
+  width: 100%;
+  position: relative;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+transition: opacity 1s ease-in-out !important;
+}
+
+.carousel-image.active {
+  opacity: 1   !important;
+}
+
+/* Responsive Fixes for All Devices */
+@media (max-width: 1200px) {
+  .hero-section .row {
+    min-height: 70vh; /* Reduce height for tablets */
+  }
+
+  .desktop-carousel {
+    height: 350px; /* Smaller height on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section .row {
+    min-height: 60vh; /* Adjust height for mobile devices */
+  }
+
+  .mobile-carousel {
+    height: 250px; /* Slightly smaller height on mobile */
+  }
+  .display-4{
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section .row {
+    min-height: 50vh; /* Minimum height for smaller screens */
+  }
+
+  .mobile-carousel {
+    height: 220px; /* Smaller carousel height for very small devices */
+  }
+  .display-4{
+    font-size: 2.2rem !important;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: black;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

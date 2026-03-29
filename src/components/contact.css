@@ -1,0 +1,20 @@
+.contact-form-container {
+    padding: 1rem 0;
+  }
+  
+  .contact-form-container img {
+    max-width: 100%; /* Ensure image is fully responsive */
+    border-radius: 10px; /* Add rounded corners for better appearance */
+   
+  }
+  
+  h2 {
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  .c-img-fluid{
+    height: 31rem !important;
+    margin-left: 2rem !important;
+    width: 40rem !important;
+    margin-top: -5.5rem !important;
+  }  

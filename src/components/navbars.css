@@ -1,0 +1,157 @@
+/* Basic Styling for Nav Links */
+.navbar-nav .nav-link {
+  font-weight: normal !important;
+  font-size: 20px !important;
+  color: black !important;
+  text-decoration: none !important;
+}
+
+/* Adjust the body padding for navbar */
+body {
+padding-top: 70px; /* Adjust this value based on navbar height */
+}
+
+/* Logo Styling */
+.custom-logo {
+font-family: 'Merriweather', serif;
+font-size: 28px;
+font-weight: bold;
+text-decoration: none;
+}
+
+.custom-logo:hover {
+color: #b02a37; /* Slightly darker red on hover */
+}
+
+/* Button Styling */
+.custom-apply-btn {
+font-family: 'Merriweather', serif !important;
+font-size: 16px;
+font-weight: 600;
+padding: 8px 20px;
+border: 2px solid #dc3545;
+color: #dc3545;
+background-color: transparent;
+transition: all 0.3s ease-in-out;
+}
+
+.custom-apply-btn:hover {
+background-color: #dc3545;
+color: #fff;
+border-color: #dc3545;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 991px) {
+/* Stack the contact info and button vertically on small screens */
+.custom-mobile-stack {
+  flex-direction: column;
+  align-items: flex-start !important; /* Align items to the left */
+
+}
+
+.custom-mobile-stack > * {
+  margin-top: -16px ;
+}
+
+.custom-apply-btn {
+  margin-left: 0 !important; 
+  margin-top: 0.5rem;
+  width: 50% !important;
+  /* Remove any left margin if exists */
+}
+}
+body {
+  overflow-x: hidden !important;
+}
+
+/* Large screen adjustments */
+@media (min-width: 992px) {
+  .custom-mobile-stack {
+    flex-direction: row;
+    align-items: center; /* Keep items aligned in a row */
+    justify-content: flex-end; /* Align items to the right in larger screens */
+  }
+.custom-apply-btn {
+  margin-left: 20px; /* Add margin between the phone number and button */
+}
+}
+@media (max-width: 768px){
+  .custom-apply-btn {
+    width: 40px !important;/* Add margin between the phone number and button */
+  }
+  
+}
+
+
+.d-inline-block{
+  height: 50px !important;
+  width: 70px !important;
+  margin-left: 10px !important;
+}
+
+/* navbars.css */
+
+.logo-text {
+  font-size: 1.2rem !important; /* Adjust font size */
+  font-weight: bold !important; /* Make text bold */
+  color:#dc3545 !important; /* Set the text color */
+  text-transform: uppercase; /* Optional: Convert text to uppercase */
+  letter-spacing: 1px; /* Optional: Add spacing between letters */
+}
+
+/* Custom Modal Styling */
+.custom-modal .modal-dialog {
+  max-width: 400px; /* Set modal's max-width */
+  margin: auto;
+  width: 90%; /* Responsive for smaller screens */
+  border: none !important;
+}
+
+/* Centered Title */
+.text-center {
+  text-align: center;
+}
+
+
+/* Styling for the Navbar Logo Image */
+.navbar-logo {
+  width: 70px !important; /* Adjust width as needed */
+
+  height: 50px !important; /* Maintain aspect ratio */
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Styling for the Logo Text */
+.navbar-logo-text {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+  color: #DC3545; /* You can change this to match your theme */
+  margin-left: 10px;
+}
+
+
+@media (max-width: 576px){
+  .navbar-logo{
+    height: 30px !important;
+    width: 40px !important;
+  }
+  .navbar-logo-text{
+    font-size: 1.2rem !important;
+    margin-left: -3px !important;
+  }
+}
+@media (max-width: 768px){
+  .navbar-logo{
+    height: 30px !important;
+    width: 40px !important;
+  }
+  .navbar-logo-text{
+    font-size: 1.2rem !important;
+    margin-left: -3px !important;
+  }
+}

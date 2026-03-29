@@ -1,0 +1,45 @@
+/* General section styles */
+.container-fluid {
+    background-color: #f8f9fa;
+  
+  }
+  
+  /* Responsive slider behavior on mobile */
+  @media (max-width: 768px) {
+    .card-row {
+      display: flex;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 0;
+      overflow: hidden !important;
+    }
+  
+    .col {
+      flex: 0 0 auto;
+      width: 70%; /* Adjust card width for better viewing */
+      margin-right: 10px;
+    }
+  
+    .card {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: fill !important;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  .hd-text-light{
+    margin-top: -3rem !important;
+  }

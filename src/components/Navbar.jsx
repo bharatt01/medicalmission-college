@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X, PhoneCall } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+const Navigate = useNavigate();  
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const links = [
+    { label: "Courses", href: "/courses", type: "page" },
+    { label: "Why Us", href: "/why-us", type: "page" },
+    { label: "Placements", href: "/placements", type: "page" },
+    { label: "Contact", href: "/contact", type: "page" },
+  ];
 
   const scrollToSection = (href) => {
     setOpen(false);
-
     if (location.pathname !== "/") {
       navigate("/");
       setTimeout(() => {
@@ -28,106 +28,63 @@ const Navbar = () => {
     }
   };
 
-  const links = [
-    { label: "Courses", href: "/courses", type: "page" },
-    { label: "Why Us", href: "/why-us", type: "page" },
-    { label: "Placements", href: "/placements", type: "page" },
-    { label: "Contact", href: "/contact", type: "page" },
-  ];
+  const isActive = (href, type) => type === "page" && location.pathname === href;
 
-  // Active check
-  const isActive = (href, type) => {
-    if (type === "page") {
-      return location.pathname === href;
-    }
-    return false;
-  };
-
-  // Link class
- const linkClass = (active) => `
-  relative inline-flex items-center text-sm font-semibold uppercase tracking-wide cursor-pointer
-  transition-all duration-300 leading-none pb-1
-  ${active ? "text-red-600" : "text-black"}
-  hover:text-red-600
-  no-underline !no-underline decoration-0
-`;
+  const linkClass = (active) =>
+    `relative inline-flex items-center text-xs font-bold uppercase tracking-[0.15em] cursor-pointer
+     transition-all duration-300 pb-1 ${active ? "text-red-600" : "text-black"} 
+     hover:text-red-600 no-underline`;
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled
-          ? "py-4 bg-white/80 backdrop-blur-xl shadow-lg border-b border-red-100"
-          : "py-4 bg-transparent"
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 bg-red-50/95 backdrop-blur-md border-b border-red-200/50 shadow-sm">
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12">
-        
+
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group no-underline">
-          <div className="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+          <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
             <span className="text-white font-black text-xl">+</span>
           </div>
-          <span className="font-black text-2xl tracking-tight text-black">
+          <span className="font-black text-2xl tracking-tighter text-black uppercase">
             Medical<span className="text-red-600">Mission</span>
           </span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-10 h-full">
-          
-          {/* Links */}
-          <div className="flex items-center gap-8 relative">
+        <div className="hidden md:flex items-center gap-10">
+          <div className="flex items-center gap-8">
             {links.map((l) => {
               const active = isActive(l.href, l.type);
-
-              return l.type === "page" ? (
-                <div key={l.href} className="relative group">
-                  <Link to={l.href} className={linkClass(active)}>
-                    {l.label}
-                  </Link>
-
-                  {/* Animated Underline */}
+              return (
+                <Link key={l.href} to={l.href} className={linkClass(active)}>
+                  {l.label}
                   <span
-                    className={`absolute left-0 bottom-0 h-[2px] bg-red-600 transition-all duration-300
+                    className={`absolute left-0 -bottom-1 h-[2px] bg-red-600 transition-all duration-300
                     ${active ? "w-full" : "w-0 group-hover:w-full"}`}
                   />
-                </div>
-              ) : (
-                <div key={l.href} className="relative group">
-                  <span
-                    onClick={() => scrollToSection(l.href)}
-                    className={linkClass(false)}
-                  >
-                    {l.label}
-                  </span>
-
-                  {/* Hover Underline */}
-                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-red-600 transition-all duration-300 group-hover:w-full" />
-                </div>
+                </Link>
               );
             })}
           </div>
 
-          {/* Right Section */}
-          <div className="flex items-center gap-4 border-l border-gray-200 pl-8">
-            <div className="hidden lg:flex items-center gap-2 text-sm font-medium text-black">
-              <PhoneCall size={16} className="text-red-600" />
-              +91 12345 67890
+          <div className="flex items-center gap-6 border-l border-red-200 pl-8">
+            <div className="hidden lg:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black/70">
+              <PhoneCall size={14} className="text-red-600" />
+              +91 8750768101
             </div>
 
-            <span
-              onClick={() => scrollToSection("#admissions")}
-              className="px-6 py-2.5 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-all hover:shadow-lg hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+            <button
+              onClick={() => Navigate("/contact")   }
+              className="px-6 py-2.5 rounded-none bg-black text-white text-xs font-bold uppercase tracking-widest hover:bg-red-600 transition-all active:scale-95"
             >
               Enrol Now
-            </span>
+            </button>
           </div>
         </div>
 
         {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2.5 rounded-xl bg-red-50 text-red-600 active:scale-90 transition-transform"
+          className="md:hidden p-2 rounded-lg bg-red-100 text-red-600 active:scale-90 transition-transform"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -137,40 +94,27 @@ const Navbar = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 md:hidden bg-white border-b px-6 py-8 shadow-xl space-y-4"
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute top-full left-0 right-0 md:hidden bg-white border-b border-red-200 px-6 py-8 shadow-2xl space-y-4"
           >
-            {links.map((l) =>
-              l.type === "page" ? (
-                <Link
-                  key={l.href}
-                  to={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-lg font-semibold text-black py-3 border-b no-underline"
-                >
-                  {l.label}
-                </Link>
-              ) : (
-                <span
-                  key={l.href}
-                  onClick={() => scrollToSection(l.href)}
-                  className="block text-lg font-semibold text-black py-3 border-b cursor-pointer"
-                >
-                  {l.label}
-                </span>
-              )
-            )}
-
-            <div className="pt-4">
-              <span
-                onClick={() => scrollToSection("#admissions")}
-                className="block text-center rounded-xl bg-red-600 px-5 py-4 text-lg font-semibold text-white cursor-pointer"
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                to={l.href}
+                onClick={() => setOpen(false)}
+                className="block text-sm font-bold uppercase tracking-widest text-black py-4 border-b border-gray-50 no-underline"
               >
-                Enrol Now
-              </span>
-            </div>
+                {l.label}
+              </Link>
+            ))}
+            <button
+              onClick={() => Navigate("/contact")}
+              className="block w-full text-center bg-red-600 px-5 py-4 text-sm font-bold uppercase tracking-widest text-white no-underline"
+            >
+              Enrol Now
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

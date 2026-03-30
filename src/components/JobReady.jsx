@@ -19,30 +19,33 @@ const JobReady = () => {
 
         {/* Text Second for Mobile, First for Desktop */}
         <Col xs={{ order: 2 }} md={{ span: 6, order: 1 }}>
-          <div className="space-y-8">
+          <div className="space-y-12">
+            {/* Section 1 */}
             <div>
-              <h3 className="text-4xl font-black text-slate-900 tracking-tight mb-4">
-                Become <strong className="text-red-600 italic font-serif">Job-ready</strong>
+              <h3 className="text-4xl font-black text-black tracking-tight mb-4">
+                Become <span className="text-red-600 font-black">Job-ready</span>
               </h3>
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 Take advantage of our free English language and workplace skills classes, designed to equip you with everything you need to stand out and thrive at your workplace.
               </p>
             </div>
 
+            {/* Section 2 */}
             <div>
-              <h3 className="text-4xl font-black text-slate-900 tracking-tight mb-4">
-                Become Part of a <strong className="text-red-600 italic font-serif">Prestigious Industry</strong>
+              <h3 className="text-4xl font-black text-black tracking-tight mb-4">
+                Become Part of a <span className="text-red-600 font-black">Prestigious Industry</span>
               </h3>
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 Train with our network of 1100+ training partners in premier healthcare settings to gain invaluable industry experience that will shape your future career and enrich your professional journey.
               </p>
             </div>
 
+            {/* Section 3 */}
             <div>
-              <h3 className="text-4xl font-black text-slate-900 tracking-tight mb-4">
-                Become a <strong className="text-red-600 italic font-serif">Lifelong Learner</strong>
+              <h3 className="text-4xl font-black text-black tracking-tight mb-4">
+                Become a <span className="text-red-600 font-black">Lifelong Learner</span>
               </h3>
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 Learn anytime and anywhere on our myCareer app. Access study material, get your doubts resolved and stay connected with your peers wherever you are.
               </p>
             </div>

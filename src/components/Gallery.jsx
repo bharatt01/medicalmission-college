@@ -1,79 +1,107 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { X } from "lucide-react";
 
-const Gallery = () => {
+const GallerySlider = () => {
   const galleryImages = [
     "/Images/gnew2.jpg",
     "/Images/gnew8.jpg",
-    "/Images/g10.jpg",
     "/Images/g6.jpg",
     "/Images/g77.jpg",
     "/Images/gnew4.jpg",
-    "/Images/gnew5.jpg",
     "/Images/g88.jpg",
     "/Images/gnew6.jpg",
     "/Images/gnew7.jpg",
   ];
 
   const [showModal, setShowModal] = useState(false);
-  const [modalImage, setModalImage] = useState("");
+  const [modalIndex, setModalIndex] = useState(0);
 
-  const handleShow = (image) => {
-    setModalImage(image);
+  const openModal = (index) => {
+    setModalIndex(index);
     setShowModal(true);
   };
 
   return (
-    <section className="relative py-24 bg-[#f3e8ea] overflow-hidden">
-      
-      {/* subtle red background glows */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-red-500/10 blur-[140px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-red-400/10 blur-[120px] rounded-full" />
+    <section className="relative py-28 bg-[#f8f0f0] overflow-hidden">
+      {/* Background glows */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-red-500/10 blur-[180px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-red-400/10 blur-[140px] rounded-full" />
 
-      <Container className="relative z-10">
-        {/* HEADER */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4" style={{ fontFamily: "Merriweather" }}>
-            Our <span className="text-red-600">Gallery</span>
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-black tracking-tight text-black mb-4 font-serif">
+            Our <span className="text-red-600 italic">Gallery</span>
           </h2>
-          <p className="text-slate-600 max-w-xl mx-auto">
-            A glimpse of our students, campus activities, and real learning experiences.
+          <p className="text-black font-black tracking-tight max-w-xl mx-auto">
+            Moments from our campus life and hands-on student experiences.
           </p>
         </div>
 
-        {/* GRID */}
-        <Row className="g-6">
-          {galleryImages.map((image, index) => (
-            <Col key={index} xs={12} sm={6} md={4} lg={3}>
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop={true}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {galleryImages.map((img, index) => (
+            <SwiperSlide key={index}>
               <div
-                className="group relative rounded-2xl p-[2px] bg-gradient-to-br from-red-500/20 to-transparent cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                onClick={() => handleShow(image)}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                onClick={() => openModal(index)}
               >
-                {/* glass card */}
-                <div className="relative rounded-2xl bg-white/50 backdrop-blur-md border border-white/40 p-3 flex items-center justify-center h-[220px] overflow-hidden">
+                <div className="relative rounded-3xl bg-white/50 backdrop-blur-md border border-white/30 p-2 h-72 flex items-center justify-center overflow-hidden">
                   <img
-                    src={image}
+                    src={img}
                     alt={`Gallery ${index + 1}`}
-                    className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover rounded-3xl transition-transform duration-500 group-hover:scale-110"
                   />
-
-                  {/* subtle hover glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-red-500/5 opacity-0 group-hover:opacity-100 transition duration-500" />
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
                 </div>
               </div>
-            </Col>
+            </SwiperSlide>
           ))}
-        </Row>
-      </Container>
+        </Swiper>
+      </div>
 
-      {/* MODAL */}
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg" contentClassName="bg-transparent border-0">
-        <Modal.Body className="p-0 text-center">
-          <img src={modalImage} alt="Full" className="w-full rounded-xl shadow-2xl" />
-        </Modal.Body>
+      {/* Modal */}
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        centered
+        size="xl"
+        contentClassName="bg-transparent border-0 p-0"
+      >
+        <div className="relative">
+          <img
+            src={galleryImages[modalIndex]}
+            alt="Full"
+            className="w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
+          />
+          <button
+            onClick={() => setShowModal(false)}
+            className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition"
+          >
+            <X size={20} />
+          </button>
+        </div>
       </Modal>
     </section>
   );
 };
 
-export default Gallery;
+export default GallerySlider;

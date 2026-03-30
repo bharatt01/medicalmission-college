@@ -30,25 +30,34 @@ const Navbar = () => {
 
   const links = [
     { label: "Courses", href: "/courses", type: "page" },
-    { label: "Why Us", href: "#edge", type: "anchor" },
-    { label: "Placements", href: "#partners", type: "anchor" },
-    { label: "Contact", href: "#admissions", type: "anchor" },
+    { label: "Why Us", href: "/why-us", type: "page" },
+    { label: "Placements", href: "/placements", type: "page" },
+    { label: "Contact", href: "/contact", type: "page" },
   ];
 
-  // 🔥 FINAL CLASS (NO DEFAULT UNDERLINE GUARANTEED)
-  const linkClass = `relative text-sm font-semibold uppercase tracking-wide cursor-pointer
-  text-black transition-colors duration-300
-  no-underline !no-underline hover:no-underline focus:no-underline active:no-underline
+  // Active check
+  const isActive = (href, type) => {
+    if (type === "page") {
+      return location.pathname === href;
+    }
+    return false;
+  };
+
+  // Link class
+ const linkClass = (active) => `
+  relative inline-flex items-center text-sm font-semibold uppercase tracking-wide cursor-pointer
+  transition-all duration-300 leading-none pb-1
+  ${active ? "text-red-600" : "text-black"}
   hover:text-red-600
-  after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-red-600
-  after:transition-all after:duration-300 hover:after:w-full`;
+  no-underline !no-underline decoration-0
+`;
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
         scrolled
-          ? "py-3 bg-white/80 backdrop-blur-xl shadow-lg border-b border-red-100"
-          : "py-5 bg-transparent"
+          ? "py-4 bg-white/80 backdrop-blur-xl shadow-lg border-b border-red-100"
+          : "py-4 bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12">
@@ -63,26 +72,43 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-10">
-          <div className="flex items-center gap-8">
-            {links.map((l) =>
-              l.type === "page" ? (
-                <Link key={l.href} to={l.href} className={linkClass}>
-                  {l.label}
-                </Link>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-10 h-full">
+          
+          {/* Links */}
+          <div className="flex items-center gap-8 relative">
+            {links.map((l) => {
+              const active = isActive(l.href, l.type);
+
+              return l.type === "page" ? (
+                <div key={l.href} className="relative group">
+                  <Link to={l.href} className={linkClass(active)}>
+                    {l.label}
+                  </Link>
+
+                  {/* Animated Underline */}
+                  <span
+                    className={`absolute left-0 bottom-0 h-[2px] bg-red-600 transition-all duration-300
+                    ${active ? "w-full" : "w-0 group-hover:w-full"}`}
+                  />
+                </div>
               ) : (
-                <span
-                  key={l.href}
-                  onClick={() => scrollToSection(l.href)}
-                  className={linkClass}
-                >
-                  {l.label}
-                </span>
-              )
-            )}
+                <div key={l.href} className="relative group">
+                  <span
+                    onClick={() => scrollToSection(l.href)}
+                    className={linkClass(false)}
+                  >
+                    {l.label}
+                  </span>
+
+                  {/* Hover Underline */}
+                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-red-600 transition-all duration-300 group-hover:w-full" />
+                </div>
+              );
+            })}
           </div>
 
+          {/* Right Section */}
           <div className="flex items-center gap-4 border-l border-gray-200 pl-8">
             <div className="hidden lg:flex items-center gap-2 text-sm font-medium text-black">
               <PhoneCall size={16} className="text-red-600" />

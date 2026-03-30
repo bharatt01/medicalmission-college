@@ -26,7 +26,7 @@ const VideoCardsSection = () => {
             <ScrollReveal delay={0.1}>
               <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-slate-900 mb-6">
                 Watch Our{" "}
-                <span className="text-red-600 italic font-serif">
+                <span className="text-red-600 italic ">
                   Journey
                 </span>{" "}
                 in Action

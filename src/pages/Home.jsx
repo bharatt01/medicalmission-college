@@ -25,13 +25,16 @@ function Home() {
     <Navbar></Navbar>
     <Banner></Banner>
     <Stats></Stats>
+
     <JobReady></JobReady>
+    
     <Courses></Courses>
     <Team></Team>
+    <SE></SE> 
     <EdgeSection></EdgeSection>
     <Alumni></Alumni>
     {/* <AboutUs></AboutUs> */}
-    <SE></SE>
+    
     <Partners></Partners>
     {/* <VectorAnimation></VectorAnimation> */}
     <WhyStudent></WhyStudent>

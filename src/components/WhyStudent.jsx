@@ -51,7 +51,7 @@ const StudentSlider = () => {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter mb-4">
             Why Students{" "}
-            <span className="text-red-600 italic font-serif">Love Us</span>
+            <span className="text-red-600 italic">Love Us</span>
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">
             Real experiences from students who transformed their careers with us.

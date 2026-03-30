@@ -101,7 +101,7 @@ function SectionHeader() {
       <ScrollReveal delay={0.1}>
         <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-slate-900 mb-6">
           Programs Designed for{" "}
-          <span className="text-red-600 italic font-serif">Real-World</span>{" "}
+          <span className="text-red-600 italic">Real-World</span>{" "}
           Healthcare
         </h2>
       </ScrollReveal>

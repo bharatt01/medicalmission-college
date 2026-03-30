@@ -46,7 +46,7 @@ const EdgeSection = () => {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-slate-900 mb-6">
-              The <span className="italic font-serif text-red-600">Faridabad</span> Edge
+              The <span className="italic text-red-600">Faridabad</span> Edge
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>

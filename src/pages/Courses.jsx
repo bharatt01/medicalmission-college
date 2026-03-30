@@ -79,24 +79,44 @@ const CoursesPage = () => {
       <Navbar />
       <main className="min-h-screen pt-24 pb-20 bg-white">
         {/* 1. Header Section */}
-        <section className="relative py-20 bg-red-600 overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,#e11d48_0%,transparent_70%)] opacity-30" />
-          </div>
-          <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-            <ScrollReveal>
-              <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter mb-6">
-                Our Medical <span className="text-white italic font-serif">Programs</span>
-              </h1>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <p className="text-red-100 text-lg max-w-2xl mx-auto font-medium">
-                Explore our range of government-approved healthcare courses designed to turn students into clinical experts.
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
+       <section className="relative h-[60vh] flex items-center overflow-hidden">
 
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center scale-105"
+    style={{ backgroundImage: "url('/Images/courses.jpg')" }}
+  />
+
+  {/* Dark base for readability */}
+  <div className="absolute inset-0 bg-black/60" />
+
+  {/* Red gradient overlay (premium) */}
+  <div className="absolute inset-0 bg-gradient-to-r from-red-700/70 via-red-600/40 to-transparent" />
+
+  {/* Subtle bottom fade */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+  {/* Content */}
+  <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
+
+    <ScrollReveal>
+      <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tight mb-6 leading-tight drop-shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
+        Our Medical{" "}
+        <span className="text-red-200 italic font-serif">
+          Programs
+        </span>
+      </h1>
+    </ScrollReveal>
+
+    <ScrollReveal delay={0.1}>
+      <p className="text-white/90 text-lg max-w-2xl mx-auto font-medium drop-shadow-md">
+        Explore government-approved healthcare courses designed to transform
+        students into industry-ready clinical professionals.
+      </p>
+    </ScrollReveal>
+
+  </div>
+</section>
         {/* 2. Filter & Search Bar */}
         <section className="sticky top-[72px] z-40 bg-white/80 backdrop-blur-xl border-b border-slate-100 py-4">
           <div className="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4">

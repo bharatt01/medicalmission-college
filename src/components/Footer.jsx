@@ -12,6 +12,12 @@ const Footer = () => {
     { name: "Contact", to: "admissions" },
   ];
 
+  const socialLinks = [
+    { icon: "facebook", url: "#" },
+    { icon: "instagram", url: "#" },
+    { icon: "linkedin", url: "#" },
+  ];
+
   return (
     <footer className="relative pt-20 pb-10 bg-[#0b0b0c] text-white overflow-hidden">
 
@@ -27,7 +33,6 @@ const Footer = () => {
           {/* LEFT */}
           <Col lg={4} md={6}>
             <div className="space-y-4">
-
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 bg-red-600 rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-white font-black text-xl">+</span>
@@ -69,17 +74,15 @@ const Footer = () => {
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-  to={link.to}
-  smooth={true}
-  offset={-70}
-  duration={500}
-  className="group relative text-white/70 hover:text-white transition cursor-pointer no-underline"
->
-  {link.name}
-
-  {/* 🔥 premium underline */}
-  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-</Link>
+                    to={link.to}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    className="group relative text-white/70 hover:text-white transition cursor-pointer no-underline"
+                  >
+                    {link.name}
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -96,29 +99,23 @@ const Footer = () => {
             </p>
 
             <div className="flex gap-4">
-              {[
-                { icon: "facebook", url: "#" },
-                { icon: "instagram", url: "#" },
-                { icon: "linkedin", url: "#" },
-              ].map((social) => (
+              {socialLinks.map((social) => (
                 <a
                   key={social.icon}
-                  href={social.url}
+                  href={social.url || "#!"} // Safe placeholder
                   className="group w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:border-red-600 hover:bg-red-600/10 transition-all"
                 >
                   <i className={`bi bi-${social.icon} text-white group-hover:text-red-500 transition`}></i>
                 </a>
               ))}
 
-              {/* X */}
-              <a
-                href="#"
+              {/* Placeholder X as a button */}
+              <button
+                onClick={() => alert("Placeholder action")}
                 className="group w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:border-red-600 hover:bg-red-600/10 transition-all"
               >
-                <span className="text-white font-semibold group-hover:text-red-500 transition">
-                  X
-                </span>
-              </a>
+                <span className="text-white font-semibold group-hover:text-red-500 transition">X</span>
+              </button>
             </div>
           </Col>
 
